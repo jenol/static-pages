@@ -12,6 +12,7 @@
                 var cnt = 0;
                 try {
                     window['_boot'] = stuff();
+                    console.log(window['_boot']);
                 }
                 catch(e) {
                     if(cnt >= 10){
@@ -24,9 +25,7 @@
                 }               
             }
 
-            boot();
-
-            console.log(window['_boot']);
+            boot();            
             
         </script>
     </body>

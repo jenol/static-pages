@@ -8,18 +8,19 @@
         <h1>hello</h1>
         <script type="text/javascript">
             function boot() {
-                try {
-                    window['_boot'] = stuff();
-                }
-                catch(e) {
-                    console.log('.');
-                    setTimeout(boot, 100);
-                }               
+                var oReq = new XMLHttpRequest();
+                oReq.addEventListener("load", reqListener);               
+                oReq.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        window['_boot'] = JSON.parse(this.responseText);
+                        console.log(window['_boot']);
+                    }
+                };
+                oReq.open("GET", "app.json");
+                oReq.send();
             }
 
-            boot();
-
-            console.log(window['_boot']);
+            boot();           
             
         </script>
     </body>
