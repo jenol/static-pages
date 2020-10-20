@@ -9,13 +9,13 @@
         <h1>hello</h1>
         <script type="text/javascript">
             function boot() {
-                if(!stuff) {
+                try {
+                    stuff();
+                }
+                catch(e) {
                     console.log('.');
                     setTimeout(boot, 100);
-                    return;
-                }
-                
-                stuff();
+                }               
             }
 
             boot();
