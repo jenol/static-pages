@@ -12,21 +12,19 @@
 
         <script type="text/javascript">
             var startTime = new Date();
+
             function boot() {                
-                var oReq = new XMLHttpRequest();            
-                oReq.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        window['_boot'] = JSON.parse(this.responseText);
-                        console.log(window['_boot']);
-                        var endTime = new Date();
-                        document.getElementById('t').innerHTML = endTime - startTime;
-                    }
-                };
-                oReq.open("GET", "app.json");
-                oReq.send();
+                $.getJSON("app.json", function( data ) {
+                    window['_boot'] = data;
+                    console.log(window['_boot']);
+                    var endTime = new Date();
+                    document.getElementById('t').innerHTML = endTime - startTime;
+                });
             }
 
-            boot();       
+            $( document ).ready(function() {
+                boot();  
+            });                         
             
         </script>
     </body>
