@@ -3,24 +3,17 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Test</title>
-        <script type="text/javascript" async defer src="app.js"></script>
     </head>
     <body>
         <h1>hello</h1>
         <script type="text/javascript">
             function boot() {
-                var cnt = 0;
                 try {
                     window['_boot'] = stuff();
                 }
                 catch(e) {
-                    if(cnt >= 10){
-                        throw e;
-                    }
-                    
                     console.log('.');
-                    cnt++;
-                    setTimeout(boot, 200);
+                    setTimeout(boot, 100);
                 }               
             }
 
