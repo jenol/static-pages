@@ -8,17 +8,17 @@
     <body>
         <h1>hello</h1>
         <script type="text/javascript">
-            function onLoad() {
+            function boot() {
                 if(!stuff) {
                     console.log('.');
-                    setTimeout(onload, 100);
+                    setTimeout(boot, 100);
                     return;
                 }
                 
                 stuff();
             }
 
-            onload();
+            boot();
             
         </script>
     </body>
