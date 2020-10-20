@@ -18,13 +18,11 @@
                     window['_boot'] = data;
                     console.log(window['_boot']);
                     var endTime = new Date();
-                    document.getElementById('t').innerHTML = endTime - startTime;
+                    $("#t").html(endTime - startTime);
                 });
             }
 
-            $( document ).ready(function() {
-                boot();  
-            });                         
+            $(document).ready(boot);                         
             
         </script>
     </body>
